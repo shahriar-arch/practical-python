@@ -66,11 +66,13 @@ while principle > 0:
     if month == extra_payment_end_month + 1:
         monthly_payment = monthly_payment - extra_payment
     """
-    principle = principle * (1 + ((rate /100) / 12))
+    principle = round(principle * (1 + ((rate /100) / 12)), 2)
+    
     if principle < monthly_payment:
-        monthly_payment = principle
-    principle = principle - monthly_payment
-    total_payment = (total_payment + monthly_payment)
+        monthly_payment = round(principle, 2)
+    
+    principle = round(principle - monthly_payment, 2)
+    total_payment = round(total_payment + monthly_payment,2)
     
     print('-----------------------------------------------')
     print(f'Monts:                    {month}')
